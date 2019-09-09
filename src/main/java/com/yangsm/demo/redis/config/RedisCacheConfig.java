@@ -65,8 +65,10 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
-        setSerializer(template);//设置序列化工具
+        //设置序列化工具
+        setSerializer(template);
         template.setConnectionFactory(factory);
+        System.out.println("==============================RedisCacheConfig RestTemplate");
         return template;
     }
 
@@ -81,7 +83,8 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(Long.class, ToStringSerializer.instance);
         objectMapper.registerModule(simpleModule);
-        objectMapper.configure(MapperFeature.PROPAGATE_TRANSIENT_MARKER, true);// 忽略 transient 修饰的属性
+        // 忽略 transient 修饰的属性
+        objectMapper.configure(MapperFeature.PROPAGATE_TRANSIENT_MARKER, true);
         objectMapper.setDateFormat(new SimpleDateFormat(Constance.DEFAULT_DATE_FORMATE));
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);

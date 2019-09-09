@@ -36,6 +36,7 @@ public class RestTemplateConfig {
                 iterator.remove();
             }
         }
+        System.out.println("==============================RestTemplateConfig RestTemplate");
         messageConverters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
         restTemplate.setMessageConverters(messageConverters);
         return restTemplate;
