@@ -30,10 +30,10 @@ public class CacheController {
     @PostMapping("/read")
     public ResponseEx<Object> read(@RequestBody RedisParams redisParams) {
         Object value = redisService.read(redisParams);
-        if (value != null) {
+        if (value == null) {
             return ResponseEx.createError("错误");
         }
-        return ResponseEx.createSuccess(10200, "成功");
+        return ResponseEx.createSuccess(value);
     }
 
     @ApiOperation(value = "删除", notes = "删除")
