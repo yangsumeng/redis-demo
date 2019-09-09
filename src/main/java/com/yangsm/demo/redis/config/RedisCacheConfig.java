@@ -62,7 +62,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 //    }
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+    public RedisTemplate<String, Object> redisCacheTemplate(RedisConnectionFactory factory) {
         RedisTemplate template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
         //设置序列化工具
