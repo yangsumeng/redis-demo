@@ -13,9 +13,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @Description:
- * @Auther: yangsm
- * @Date: 2018/9/11 0011
+ * @author yangsm
+ * @description:
+ * @date: 2018/9/11 0011
  */
 @Configuration
 public class RestTemplateConfig {
@@ -36,7 +36,6 @@ public class RestTemplateConfig {
                 iterator.remove();
             }
         }
-        System.out.println("==============================RestTemplateConfig RestTemplate");
         messageConverters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
         restTemplate.setMessageConverters(messageConverters);
         return restTemplate;

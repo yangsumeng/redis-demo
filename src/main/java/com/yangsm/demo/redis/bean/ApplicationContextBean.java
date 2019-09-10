@@ -36,7 +36,9 @@ public class ApplicationContextBean implements ApplicationContextAware, Initiali
     public void afterPropertiesSet() throws Exception {
         String[] names = applicationContext.getBeanDefinitionNames();
         for (String name : names) {
-            System.out.println(">>>>>>" + name);
+            if(name.contains("redis")){
+                System.out.println(">>>>>>" + name);
+            }
         }
         System.out.println("------\nBean 总计:" + applicationContext.getBeanDefinitionCount());
     }
