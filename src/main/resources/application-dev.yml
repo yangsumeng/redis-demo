@@ -14,7 +14,7 @@ spring:
     timeout: 5000            # 连接超时时间（毫秒）
     host: 36.155.115.153
     port: 6379
-    password: 123456
+    password: 901266
     jedis:
       pool:
         max-idle: 10
