@@ -1,5 +1,6 @@
 package com.yangsm.demo.redis;
 
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,10 +16,10 @@ public class RedisApplication {
 	@Bean
 	public ApplicationRunner applicationRunner() throws InterruptedException {
 		System.out.println("===================模拟延迟--------------------");
-		Thread.sleep(30000);
-		return args -> {
+		ApplicationRunner applicationRunner = (ApplicationArguments args) -> {
 			System.out.println("===================模拟延迟启动--------------------");
 		};
+		return applicationRunner;
 	}
 
 

@@ -1,45 +1,46 @@
-package test.com; 
+package test.com;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After; 
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
 
-/** 
-* RedisApplicationTest Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>Ê®ÔÂ 20, 2019</pre> 
-* @version 1.0 
-*/ 
-public class RedisApplicationTestTest { 
+/**
+* RedisApplicationTest Tester.
+*
+* @author <Authors name>
+* @since <pre>Ê®ï¿½ï¿½ 20, 2019</pre>
+* @version 1.0
+*/
+public class RedisApplicationTestTest {
 
 @Before
-public void before() throws Exception { 
-} 
+public void before() throws Exception {
+}
 
 @After
-public void after() throws Exception { 
-} 
+public void after() throws Exception {
+}
 
-/** 
-* 
-* Method: before() 
-* 
-*/ 
+/**
+*
+* Method: before()
+*
+*/
 @Test
-public void testBefore() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testBefore() throws Exception {
+//TODO: Test goes here...
+}
 
-/** 
-* 
-* Method: testStartUp() 
-* 
-*/ 
+/**
+*
+* Method: testStartUp()
+*
+*/
 @Test
-public void testTestStartUp() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testTestStartUp() throws Exception {
+    System.out.println(1111111111);
+//TODO: Test goes here...
+}
 
 
-} 
+}
