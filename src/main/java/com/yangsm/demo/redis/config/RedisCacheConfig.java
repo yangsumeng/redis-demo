@@ -18,6 +18,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
@@ -91,8 +92,12 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
 
-        template.setKeySerializer(new StringRedisSerializer()); //否者key会出现乱码
-        template.setValueSerializer(jackson2JsonRedisSerializer);//设置解析对象
+        RedisSerializer stringSerializer = new StringRedisSerializer();
+        template.setKeySerializer(stringSerializer); //否者key会出现乱码
+        //template.setValueSerializer(jackson2JsonRedisSerializer);//设置解析对象
+        template.setHashKeySerializer(stringSerializer);
+        template.setHashValueSerializer(stringSerializer);
+        template.setValueSerializer(stringSerializer);
         //template.setValueSerializer(new JdkSerializationRedisSerializer());
     }
 }

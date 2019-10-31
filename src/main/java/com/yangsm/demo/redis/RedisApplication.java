@@ -21,6 +21,4 @@ public class RedisApplication {
 		};
 		return applicationRunner;
 	}
-
-
 }

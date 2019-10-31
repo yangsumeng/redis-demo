@@ -1,6 +1,7 @@
 package com;
 
 import com.yangsm.demo.redis.RedisApplication;
+import com.yangsm.demo.redis.lock.RedisLock;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +23,10 @@ public class RedisApplicationTest {
 
         @Test
         public void testStartUp() {
+            boolean isOk = RedisLock.lock("key","value001",1000L);
+            System.out.println("结果："+isOk);
 //            aService.doSmthing();
+            RedisLock.unLock("name","yangsumeng");
             System.out.println("--------------测试----------");
         }
 }

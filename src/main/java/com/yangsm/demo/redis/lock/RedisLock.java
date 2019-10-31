@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class RedisLock {
 
     private static RedisTemplate getRedisTemplate(){
-        return (RedisTemplate)ApplicationContextBean.applicationContext.getBean("redisTemplate");
+        return (RedisTemplate)ApplicationContextBean.applicationContext.getBean("redisCacheTemplate");
     }
     /**
      *@descption
@@ -48,9 +48,10 @@ public class RedisLock {
      */
     public static boolean unLock(String key, String value) {
         String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
-        DefaultRedisScript<Integer> redisScript = new DefaultRedisScript<>();
+        System.out.println("执行脚本：" + script);
+        DefaultRedisScript<Object> redisScript = new DefaultRedisScript<>();
         redisScript.setScriptText(script);
-        redisScript.setResultType(Integer.class);
+        redisScript.setResultType(Object.class);
         Object i = getRedisTemplate().execute(redisScript, Collections.singletonList(key), value);
         if(i != null ){
             return true;
